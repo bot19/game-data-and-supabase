@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import "./styles/App.css";
 import { supabase } from "./supabaseClient";
-import Auth from "./Auth";
-import Account from "./Account";
+import AuthSignup from "./AuthSignup";
+import Dashboard from "./Dashboard";
+import AuthLogin from "./AuthLogin";
 
 function App() {
   const [session, setSession] = useState(null);
@@ -19,13 +20,22 @@ function App() {
     return () => data.subscription.unsubscribe();
   }, []);
 
+  console.log("App session", session);
+
   return (
-    <div className="container" style={{ padding: "50px 0 100px 0" }}>
-      {!session ? (
-        <Auth setSession={setSession} />
-      ) : (
-        <Account key={session.user.id} session={session} />
-      )}
+    <div className="container">
+      <div className="row flex">
+        <div className="col-6 form-widget">
+          <AuthSignup setSession={setSession} disabled={Boolean(session)} />
+          <AuthLogin setSession={setSession} disabled={Boolean(session)} />
+        </div>
+        <div className="col-6 form-widget">
+          <Dashboard
+            key={session?.user?.id || "no-session"}
+            session={session}
+          />
+        </div>
+      </div>
     </div>
   );
 }

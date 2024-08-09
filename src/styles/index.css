@@ -1,7 +1,7 @@
 html,
 body {
-  --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --custom-bg-color: #101010;
   --custom-panel-color: #222;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
@@ -30,12 +30,14 @@ body,
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 /* Grid */
 
 .container {
-  width: 90%;
+  width: 820px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -43,7 +45,7 @@ body,
   position: relative;
   width: 100%;
 }
-.row [class^='col'] {
+.row [class^="col"] {
   float: left;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
@@ -99,7 +101,7 @@ body,
   width: 96%;
 }
 .row::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -107,15 +109,12 @@ body,
   display: none;
 }
 
-@media only screen and (min-width: 33.75em) {
-  /* 540px */
-  .container {
-    width: 80%;
-  }
+/* 540px */
+@media only screen and (min-width: 33.75rem) {
 }
 
-@media only screen and (min-width: 45em) {
-  /* 720px */
+/* 720px */
+@media only screen and (min-width: 45rem) {
   .col-1 {
     width: 4.33%;
   }
@@ -157,12 +156,8 @@ body,
   }
 }
 
-@media only screen and (min-width: 60em) {
-  /* 960px */
-  .container {
-    width: 75%;
-    max-width: 60rem;
-  }
+/* 960px */
+@media only screen and (min-width: 60rem) {
 }
 
 /* Forms */
@@ -232,6 +227,15 @@ input[disabled] {
 }
 .opacity-half {
   opacity: 50%;
+}
+.no-m {
+  margin: 0;
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+.relative {
+  position: relative;
 }
 
 /* Button */
@@ -379,4 +383,11 @@ button.primary,
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+/* New */
+.blocker {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.66);
 }
